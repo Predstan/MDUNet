@@ -9,7 +9,7 @@
 </div>
 
 <div align='center'>
-  <img src="./webpage/banner.png" class="interpolation-image" alt="MDUNet Architecture" height="80%" width="70%" />
+  <img src="./docs/real_table.png" class="interpolation-image" alt="MDUNet Comparison" height="80%" width="90%" />
 </div>
 
 
@@ -18,7 +18,7 @@ We introduce **MDUNet**, a fully trained novel multipath decoding UNet architect
 ### MDUNet excels both in the real world and simulation
 
 <div align='center'>
-<img src="./webpage/real_table.png" class="interpolation-image" alt="comparison" height="80%" width="80%" />
+<img src="./docs/banner.png" class="interpolation-image" alt="MDUNet Architecture" height="80%" width="80%" />
 </div>
 
 ### Highlights
