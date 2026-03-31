@@ -18,7 +18,7 @@
 
 We introduce **MDUNet**, a fully trained novel multipath decoding UNet architecture that drastically accelerates and stabilizes NLOS 3D imaging. This multimodal decoder parallels recent physics-based methods that achieve success by explicitly separating the representations and reconstructions of occluding and non-occluding hidden scene structures. By sharing a latent feature representation between the occluding and non-occluding structures, MDUNet effectively couples their reconstruction pathways.
 
-### MDUNet excels both in the real world and simulation
+### MDUNet excels both in the real world with Background
 
 <div align='center'>
 <img src="./docs/other.png" class="interpolation-image" alt="MDUNet Results" height="80%" width="80%" />
@@ -29,6 +29,14 @@ We introduce **MDUNet**, a fully trained novel multipath decoding UNet architect
 - **MDUNet** improves inference times by over **100×** compared to diffusion-based methods (SSD) and by **1000×** compared to iterative optimization-based methods, while improving reconstruction quality.
 - **MDUNet** is trained solely on simulation data but effortlessly generalizes to real experimental data, maintaining accuracy and stability even as ambient illumination increases.
 
+
+### Architecture
+
+<div align='center'>
+  <img src="./docs/architecture.png" class="interpolation-image" alt="MDUNet Architecture" height="80%" width="95%" />
+</div>
+
+> MDUNet uses a shared encoder with two parallel decoding heads — one for 2D scene reconstruction (image decoder) and one for 3D geometry estimation (SDF decoder). Both heads are jointly trained end-to-end from simulated NLOS shadow measurements.
 
 
 ### TODO
