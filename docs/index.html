@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>MDUNet: Multimodal Decoding UNet for Passive Occluder-Aided Non-line-of-sight 3D Imaging</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+    }
+
+    .publication-title {
+      font-family: 'Google Sans', sans-serif;
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .author-block {
+      display: inline-block;
+      margin-right: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .publication-authors {
+      margin-bottom: 1rem;
+    }
+
+    .abstract-text {
+      text-align: justify;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .hero.is-light {
+      background-color: #f5f5f5;
+      padding: 2rem 0;
+    }
+
+    .banner-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    pre code {
+      background-color: #f5f5f5;
+      padding: 1.5rem;
+      border-radius: 8px;
+      display: block;
+      overflow-x: auto;
+    }
+
+    .footer {
+      padding: 3rem 1.5rem;
+      background-color: #fafafa;
+    }
+
+    /* Video Overlay Labels */
+    .video-wrapper {
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .video-label-left {
+      position: absolute;
+      top: 15px;
+      left: 25%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      z-index: 10;
+      font-size: 1.2rem;
+      pointer-events: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-label-right {
+      position: absolute;
+      top: 15px;
+      right: 25%;
+      transform: translateX(50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      z-index: 10;
+      font-size: 1.2rem;
+      pointer-events: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .caption {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .results-carousel {
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero is-white">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">MDUNet: Multimodal Decoding UNet for Passive Occluder-Aided
+              Non-line-of-sight 3D Imaging</h1>
+
+            <div class="publication-authors">
+              <span class="author-block">Fadlullah Raji</span>,
+              <span class="author-block">John Murray-Bruce</span>
+            </div>
+
+            <div class="publication-authors">
+              <span class="author-block is-size-5 has-text-grey">Bellini College of AI, Cybersecurity and Computing,
+                University of South Florida</span>
+            </div>
+
+            <div class="is-size-4 has-text-weight-bold mt-3 mb-5" style="color: #4a4a4a;">
+              WACV 2026
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Paper Link. -->
+                <span class="link-block">
+                  <a href="https://openaccess.thecvf.com/content/WACV2026/html/Raji_MDUNet_Multimodal_Decoding_UNet_for_Passive_Occluder-Aided_Non-line-of-sight_3D_Imaging_WACV_2026_paper.html" target="_blank"
+                    class="button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/Predstan/MDUNet" target="_blank"
+                    class="button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner Image -->
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container is-max-widescreen has-text-centered">
+        <img src="banner.png" alt="MDUNet Banner" class="banner-img" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content abstract-text">
+            <p>
+              A conventional camera captures an image of a directly visible scene by measuring the light intensity (and
+              color) arriving at each pixel of its image sensor from a corresponding scene patch. Accordingly,
+              conventional photography treats the measured light as being solely informative of the directly visible
+              scene. Recent research has shown that subtle variations in measured light intensity can carry information
+              about scenes outside the camera's line of sight. A subset of these methods exploits preexisting
+              obstructions—i.e., <strong>occluders</strong>—which cast barely perceptible yet highly informative soft
+              shadows onto the observed planar surface. Whereas most prior works assume that exploitable occluders are
+              either partly or wholly known or almost planar, a recent work blended a trained diffusion-based sampler to
+              reconstruct the hidden occluding structures in 3D with a transverse 2D radiosity map of all other hidden
+              non-occluding structures. This work proposes a fully trained novel <strong>multipath decoding UNet
+                (MDUNet)</strong> architecture, in which the multimodal, multipath decoder parallels recent
+              physics-based methods that achieve success by explicitly separating the representations and
+              reconstructions of occluding and non-occluding hidden scene structures. However, by sharing a latent
+              feature representation between the occluding and non-occluding structures, MDUNet couples their
+              reconstruction pathways. Empirical results show that MDUNet improves inference times by over 100× compared
+              to a state-of-the-art diffusion-based method and by 1000× compared to an iterative optimization-based
+              method, while also improving reconstruction quality. In addition, MDUNet is trained solely on simulation
+              data but generalizes to real experimental data, maintaining accuracy and stability even as ambient
+              illumination increases. Code and training data are available at <a
+                href="https://github.com/Predstan/MDUNet" target="_blank">https://github.com/Predstan/MDUNet</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+
+  <!-- Video Carousel Section -->
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3 has-text-centered mb-5">Results & Visualizations</h2>
+
+        <div id="results-carousel" class="carousel results-carousel">
+
+          <!-- Video 1 -->
+          <div class="item">
+            <div class="columns is-centered is-vcentered" style="margin: 0 1rem;">
+              <div class="column is-6 has-text-centered">
+                <span class="tag is-dark is-medium mb-3">Real Setup</span>
+                <img src="ball_complex_setup.png" alt="Simulated Setup Ball Complex"
+                  style="border-radius: 8px; width: 100%; height: 100%; object-fit: cover; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+              </div>
+              <div class="column is-6 has-text-centered">
+                <span class="tag is-info is-medium mb-3">Reconstruction</span>
+                <div class="video-wrapper" style="border-radius: 8px; overflow: hidden; height: 100%;">
+                  <div class="video-label-left">SSD (Baseline)</div>
+                  <div class="video-label-right">MDUNet (Ours)</div>
+                  <video poster="" id="video1" autoplay controls muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                    <source src="shape_views_compare_ball_complex.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="item">
+            <div class="columns is-centered is-vcentered" style="margin: 0 1rem;">
+              <div class="column is-6 has-text-centered">
+                <span class="tag is-dark is-medium mb-3">Real Setup</span>
+                <img src="ball_smiles_setup.png" alt="Simulated Setup Ball Smiles"
+                  style="border-radius: 8px; width: 100%; height: 100%; object-fit: cover; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+              </div>
+              <div class="column is-6 has-text-centered">
+                <span class="tag is-info is-medium mb-3">Reconstruction</span>
+                <div class="video-wrapper" style="border-radius: 8px; overflow: hidden; height: 100%;">
+                  <div class="video-label-left">SSD (Baseline)</div>
+                  <div class="video-label-right">MDUNet (Ours)</div>
+                  <video poster="" id="video2" autoplay controls muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                    <source src="shape_views_compare_ball_smiles.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="item">
+            <div class="columns is-centered is-vcentered" style="margin: 0 1rem;">
+              <div class="column is-6 has-text-centered">
+                <span class="tag is-dark is-medium mb-3">Real Setup</span>
+                <img src="real_chair_setup.png" alt="Real Setup Chair"
+                  style="border-radius: 8px; width: 100%; height: 100%; object-fit: contain; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+              </div>
+              <div class="column is-6 has-text-centered">
+                <span class="tag is-info is-medium mb-3">Reconstruction</span>
+                <div class="video-wrapper" style="border-radius: 8px; overflow: hidden; height: 100%;">
+                  <div class="video-label-left">SSD (Baseline)</div>
+                  <div class="video-label-right">MDUNet (Ours)</div>
+                  <video poster="" id="video3" autoplay controls muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                    <source src="shape_views_compare_real_chair.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 4 -->
+          <div class="item">
+            <div class="columns is-centered is-vcentered" style="margin: 0 1rem;">
+              <div class="column is-6 has-text-centered">
+                <span class="tag is-dark is-medium mb-3">Real Setup</span>
+                <!-- This image tag is ready for the Mushroom stool setup image you provided! -->
+                <img src="shape_views_setup.png" alt="Real Setup Shape Views"
+                  style="border-radius: 8px; width: 100%; height: 100%; object-fit: contain; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+              </div>
+              <div class="column is-6 has-text-centered">
+                <span class="tag is-info is-medium mb-3">Reconstruction</span>
+                <div class="video-wrapper" style="border-radius: 8px; overflow: hidden; height: 100%;">
+                  <div class="video-label-left">SSD (Baseline)</div>
+                  <div class="video-label-right">MDUNet (Ours)</div>
+                  <video poster="" id="video4" autoplay controls muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                    <source src="shape_views.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="mt-6">
+        <h3 class="title is-3 has-text-centered mb-5">Quantitative Results</h3>
+
+        <!-- Quantitative Evaluation Tables -->
+          <div class="box mb-6 has-text-centered" style="padding: 2rem; background-color: #fdfdfd;">
+            <h4 class="title is-5 mb-4">Quantitative evaluation and comparison</h4>
+            <img src="real_table.png" alt="Quantitative Results Evaluation"
+              style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+          </div>
+
+          <!-- Running Times Table -->
+          <div class="box has-text-centered" style="padding: 2rem; background-color: #fdfdfd;">
+            <h4 class="title is-5 mb-4">Running Times</h4>
+            <img src="running_time.png" alt="Running Times Optimization"
+              style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Project Poster</h2>
+      <div class="box has-text-centered" style="padding: 2rem;">
+        <iframe src="poster.pdf" width="100%" height="800px"
+          style="border:1px solid #ddd; border-radius: 8px;"></iframe>
+        <div class="mt-4">
+          <a href="poster.pdf" target="_blank" class="button is-info">
+            <span class="icon"><i class="fas fa-external-link-alt"></i></span>
+            <span>Open Poster Fullscreen</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-3">BibTeX</h2>
+      <pre><code>@inproceedings{mdunet2026,
+  title     = {MDUNet: Multimodal Decoding UNet for Passive Occluder-Aided Non-line-of-sight 3D Imaging},
+  author    = {Raji, Fadlullah and Murray-Bruce, John},
+  booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  year      = {2026}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Nerfies</a> academic project page template.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts for the Carousel -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Initialize Bulma Carousel
+      var carousels = bulmaCarousel.attach('.carousel', {
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        loop: true,
+        infinite: true,
+        autoplay: false,
+        pagination: true,
+        navigation: true,
+        navigationKeys: true
+      });
+    });
+  </script>
+
+</body>
+
+</html>
