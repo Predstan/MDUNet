@@ -9,7 +9,10 @@
 </div>
 
 <div align='center'>
-  <img src="./docs/real_table.png" class="interpolation-image" alt="MDUNet Comparison" height="80%" width="90%" />
+  <video width="90%" autoplay loop muted playsinline>
+    <source src="https://github.com/Predstan/MDUNet/raw/main/docs/shape_views_compare_real_chair.mp4" type="video/mp4">
+  </video>
+  <p><em>Real chair scene — SSD (baseline) vs MDUNet (Ours) 3D reconstruction</em></p>
 </div>
 
 
@@ -18,7 +21,7 @@ We introduce **MDUNet**, a fully trained novel multipath decoding UNet architect
 ### MDUNet excels both in the real world and simulation
 
 <div align='center'>
-<img src="./docs/banner.png" class="interpolation-image" alt="MDUNet Architecture" height="80%" width="80%" />
+<img src="./docs/other.png" class="interpolation-image" alt="MDUNet Results" height="80%" width="80%" />
 </div>
 
 ### Highlights
