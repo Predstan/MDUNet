@@ -12,7 +12,7 @@ __pycache__/
 *.safetensors
 checkpoints/
 
-# Temp files from demo.py
+# Temp output files from demo.py (NOT the docs/ webpage assets)
 _tmp.png
 _tmp_scene.png
 reconstruction_results.png
@@ -21,6 +21,10 @@ shape_views*.png
 *_360.mp4
 *_left.png
 *_scene2d.png
+
+# Always track everything inside docs/ (webpage assets, videos, images)
+!docs/
+!docs/**
 
 # Jupyter
 .ipynb_checkpoints/
