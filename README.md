@@ -39,14 +39,38 @@ We introduce **MDUNet**, a fully trained novel multipath decoding UNet architect
 
 ### Setup
 
-Clone this repository and install required packages:
-
+**1. Create and activate a conda environment:**
 ```shell
 conda create --name MDUNet -y python=3.9
 conda activate MDUNet
+```
+
+**2. Clone the repository:**
+```shell
 git clone git@github.com:Predstan/MDUNet.git
 cd MDUNet
 ```
+
+**3. Install PyTorch (with CUDA if available):**
+
+Visit [https://pytorch.org/get-started/locally](https://pytorch.org/get-started/locally) to get the exact command for your system. Example for CUDA 11.8:
+```shell
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+```
+
+**4. Install MDUNet and all dependencies:**
+```shell
+pip install -e .
+```
+
+This installs all required packages listed in `setup.py`, including:
+`pytorch-lightning`, `accelerate`, `diffusers`, `einops`, `trimesh`, `wandb`, `scikit-image`, `open3d`, `pymeshlab`, and more.
+
+**5. (Optional) Install xFormers for faster attention:**
+```shell
+pip install xformers
+```
+
 
 ### Download Model Weights
 
