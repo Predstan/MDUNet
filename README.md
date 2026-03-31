@@ -207,3 +207,39 @@ Alternatively, you can utilize HuggingFace Accelerate for distributed data paral
 ```shell
 accelerate launch --multi_gpu --num_processes=3 Trainer.py --train_batch_size=64
 ```
+
+---
+
+## Citation
+
+If you use MDUNet in your research, please cite our work and related prior works:
+
+**MDUNet (WACV 2026) — This Work**
+```bibtex
+@inproceedings{mdunet2026,
+  title     = {MDUNet: Multimodal Decoding UNet for Passive Occluder-Aided Non-line-of-sight 3D Imaging},
+  author    = {Raji, Fadlullah and Murray-Bruce, John},
+  booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  year      = {2026}
+}
+```
+
+**Soft Shadow Diffusion — SSD (ECCV 2024)**
+```bibtex
+@inproceedings{Fadlullah2024ECCV,
+  title     = {Soft Shadow Diffusion (SSD): Physics-inspired Learning for 3D Computational Periscopy},
+  author    = {Raji, Fadlullah and Murray-Bruce, John},
+  booktitle = {European Conference on Computer Vision},
+  year      = {2024}
+}
+```
+
+**SNLLS — ICASSP 2024**
+```bibtex
+@InProceedings{Fadlullah_2024_ICASSP,
+  title     = {Towards 3D Computational Periscopy with an Ordinary Camera: A Separable Non-Linear Least Squares Formulation},
+  author    = {Fadlullah, Raji and John, Murray-Bruce},
+  booktitle = {IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  year      = {2024}
+}
+```
